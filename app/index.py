@@ -12,7 +12,7 @@ def factorial(n):
 # Driver Code
 num = 5;
 print("Factorial of",num,"is",
-factorial(num))!"
+factorial(num))
 
 
 app.run(host='0.0.0.0', port=5000)
