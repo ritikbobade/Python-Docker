@@ -7,7 +7,7 @@ pipeline {
             // As this project is a Github project so we have to checkout (stage) it in order jenkins can fetch the repository, above line of code do the same
             steps {
                 //The above line of code tells the steps to be executed in this particular stage
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '9d16d0f0-4c06-4cb0-b6ca-02fc02bdefcc', url: 'https://github.com/ritikbobade/Python-Docker']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '*******', url: 'https://github.com/ritikbobade/Python-Docker']]])
                 //This line of code give the credentials for the github in order jenkins can checkout from the git.
                 echo 'Checkout Complete'
                 //Last we print a message telling the checkout is complete
@@ -18,7 +18,7 @@ pipeline {
             // This stage is the builing stage in which the program will be build.
             steps{
                 //The above line of code tells the steps to be executed in build stage
-                git credentialsId: '9d16d0f0-4c06-4cb0-b6ca-02fc02bdefcc', url: 'https://github.com/ritikbobade/Python-Docker'
+                git credentialsId: '******', url: 'https://github.com/ritikbobade/Python-Docker'
                 // The above line of code connect to github with authentication credentials for build purpose
                 sh '''#!/bin/bash
                 python3 print.py'''
@@ -32,7 +32,7 @@ pipeline {
             // This stage is the deployement stage in which the program will be Deployed.
             steps{
                 //The above line of code tells the steps to be executed in Deployement stage
-                git credentialsId: '9d16d0f0-4c06-4cb0-b6ca-02fc02bdefcc', url: 'https://github.com/ritikbobade/Python-Docker'
+                git credentialsId: '****', url: 'https://github.com/ritikbobade/Python-Docker'
                 // The above line of code connect to github with authentication credentials for deployement purpose
                 sh '''#!/bin/bash
                 docker build -t dockerpython .'''
